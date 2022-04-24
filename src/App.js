@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-
+import Navbar from './components/Navbar';
+import Textform from './components/Textform';
+import Contact from './components/Contact';
+import About from './components/About';
+// import Alert from './components/Alert';
+import {Switch, Route, BrowserRouter as Router} from 'react-router-dom';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+    <Navbar title="TextUtils" aboutText = "About" />
+    {/* <Alert /> */}
+      <div>
+      <Switch>
+          <Route exact path="/">
+          <Textform heading="Try TextUtils - Manipulate your text Easily!"/>
+          </Route>
+          <Route path="/about">
+          <About/>
+          </Route>
+          <Route path="/contact">
+          <Contact />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+
   );
 }
 
